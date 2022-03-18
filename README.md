@@ -4,7 +4,7 @@ This is a simple game.
 
 The goal?
 
-nReach a certain agreed number.
+Reach a certain agreed number.
 
 How?
 
