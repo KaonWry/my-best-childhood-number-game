@@ -4,7 +4,7 @@ This is a simple game.
 
 The goal?
 
-Reach the number 100.
+nReach a certain agreed number.
 
 How?
 

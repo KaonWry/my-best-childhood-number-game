@@ -1,8 +1,44 @@
 //NPM dependencies
 var prompt = require('prompt-sync')();
 //The rules
-console.log("This is a simple game.\nThe goal?\nReach the number 100.\nHow?\nAll player starts at number one, each player add the number either 1, 2, or 3 to the number before.\nThe winner is the player who reach the number 100.\nThere can be only one winner.");
-//Random integer algorithm, really useful to the game
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+console.log("This is a simple game.\nThe goal?\nReach a certain agreed number.\nHow?\nAll player starts at number one, each player add the number either 1, 2, or 3 to the number before.\nThe winner is the player who reach the agreed number.\nThere can be only one winner.");
+//Initialisation
+var mason = 1;
+var turn  = 1;
+var input;
+var maxMason = prompt("Type the highest number: ");
+console.log(mason);
+function theGame() {
+  while (mason < maxMason) {
+  //Even turn
+   if (turn % 2 == 0) {
+      input = prompt("Player 2 turn: ");
+      input = parseInt(input);
+    }
+  //Odd turn
+   else {
+      input = prompt("Player 1 turn: ");
+      input = parseInt(input);
+   }
+  //Failsafe if the input is invalid
+   if (input < 1 || input > 3) {
+      continue;
+   }
+   if (isNaN(input)) {
+     continue;
+   }
+    mason = mason + input;
+    console.log(mason);
+    turn++
+  }
 }
+theGame();
+turn--
+//Even turn
+ if (turn % 2 == 0) {
+    console.log("Player 2 wins!");
+  }
+//Odd turn
+ else {
+    console.log("Player 1 wins!");
+ }
