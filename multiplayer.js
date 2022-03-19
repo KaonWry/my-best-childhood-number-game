@@ -1,6 +1,6 @@
 var prompt = require('prompt-sync')();
 module.exports = function() {
-   this.single = function (play, maximum, turns, input) {
+   this.playNow = function (play, maximum, turns, input) {
       while (play < maximum) {
          //Even turn
          if (turns % 2 == 0) {
