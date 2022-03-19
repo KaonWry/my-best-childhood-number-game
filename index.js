@@ -8,37 +8,37 @@ var turn  = 1;
 var input;
 var maxMason = prompt("Type the highest number: ");
 console.log(mason);
-function theGame() {
-  while (mason < maxMason) {
-  //Even turn
+while (mason < maxMason) {
+   //Even turn
    if (turn % 2 == 0) {
       input = prompt("Player 2 turn: ");
-      input = parseInt(input);
-    }
-  //Odd turn
+   }
+   //Odd turn
    else {
       input = prompt("Player 1 turn: ");
+   }
+   //Exit parameter
+   if (input == "exit") {
+      break;
+   }
+   else {
       input = parseInt(input);
    }
-  //Failsafe if the input is invalid
-   if (input < 1 || input > 3) {
+   //Failsafe if the input is invalid
+   if (input < 1 || input > 3 || isNaN(input)) {
       continue;
    }
-   if (isNaN(input)) {
-     continue;
-   }
-    mason = mason + input;
-    console.log(mason);
-    turn++
-  }
+   mason = mason + input;
+   console.log(mason);
+   turn++
 }
-theGame();
+//Winning condition
 turn--
 //Even turn
- if (turn % 2 == 0) {
-    console.log("Player 2 wins!");
-  }
+if (turn % 2 == 0) {
+   console.log("Player 2 wins!");
+}
 //Odd turn
- else {
-    console.log("Player 1 wins!");
- }
+else {
+   console.log("Player 1 wins!");
+}
