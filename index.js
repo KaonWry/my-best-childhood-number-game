@@ -1,38 +1,16 @@
-//NPM dependencies
+//Dependencies
 var prompt = require('prompt-sync')();
+require('./multiplayer.js')();
 //The rules
 console.log("This is a simple game.\nThe goal?\nReach a certain agreed number.\nHow?\nAll player starts at number one, each player add the number either 1, 2, 3, or 4 to the number before.\nThe winner is the player who reach the agreed number.\nThere can be only one winner.");
 //Initialisation
 var mason = 1;
 var turn  = 1;
-var input;
+var playerTyped;
 var maxMason = prompt("Type the highest number: ");
 maxMason = parseInt(maxMason);
 console.log(mason + "/" + maxMason);
-while (mason < maxMason) {
-   //Even turn
-   if (turn % 2 == 0) {
-      input = prompt("Player 2 turn: ");
-   }
-   //Odd turn
-   else {
-      input = prompt("Player 1 turn: ");
-   }
-   //Check exit parameter
-   if (input == "exit") {
-      break;
-   }
-   else {
-      input = parseInt(input);
-   }
-   //Failsafe if the input is invalid
-   if (input < 1 || input > 4 || isNaN(input)) {
-      continue;
-   }
-   mason = mason + input;
-   console.log(mason + "/" + maxMason);
-   turn++
-}
+single(mason, maxMason, turn, playerTyped);
 //Winning condition
 turn--
 //Even turn
