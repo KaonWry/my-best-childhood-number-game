@@ -7,7 +7,8 @@ var mason = 1;
 var turn  = 1;
 var input;
 var maxMason = prompt("Type the highest number: ");
-console.log(mason);
+maxMason = parseInt(maxMason)
+console.log(mason + "/" + maxMason);
 while (mason < maxMason) {
    //Even turn
    if (turn % 2 == 0) {
@@ -29,7 +30,7 @@ while (mason < maxMason) {
       continue;
    }
    mason = mason + input;
-   console.log(mason);
+   console.log(mason + "/" + maxMason);
    turn++
 }
 //Winning condition
