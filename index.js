@@ -7,7 +7,7 @@ var mason = 1;
 var turn  = 1;
 var input;
 var maxMason = prompt("Type the highest number: ");
-maxMason = parseInt(maxMason)
+maxMason = parseInt(maxMason);
 console.log(mason + "/" + maxMason);
 while (mason < maxMason) {
    //Even turn
@@ -18,7 +18,7 @@ while (mason < maxMason) {
    else {
       input = prompt("Player 1 turn: ");
    }
-   //Exit parameter
+   //Check exit parameter
    if (input == "exit") {
       break;
    }
