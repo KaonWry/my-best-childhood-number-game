@@ -6,11 +6,22 @@ function getRandomInt (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function botAlgorithm (play, maximum, input) {
+   //if the number is  max-9 < play < max-6
+   if (play >= (maximum - 9) && play <= (maximum-6))  {
+      input = (maximum - play - 5);
+   }
+   else {
+      input = (getRandomInt(1, 4));
+   }
+}
+
 module.exports = function() {
    this.playNow = function (play, maximum, turns, input) {
 
       //Check first player
       var playFirst = getRandomInt(1, 2);
+      playFirst = 2
       if (playFirst == 1) {
          console.log("Bot playing first.")
       } 
@@ -27,7 +38,7 @@ module.exports = function() {
             }
             //Odd turn
             else {
-               input = getRandomInt(1, 4);
+               botAlgorithm(play, maximum, input);
                console.log("Bot turn: " + input)
             }
          }
@@ -36,7 +47,7 @@ module.exports = function() {
          else if (playFirst == 2) {
             //Even turn
             if (turns % 2 == 0) {
-               input = getRandomInt(1, 4);
+               botAlgorithm(play, maximum, input);
                console.log("Bot turn: " + input)
             }
             //Odd turn
@@ -46,6 +57,7 @@ module.exports = function() {
          }
 
          //Check exit parameter
+         input = input.toLowerCase();
          if (input == "exit") {
             break;
          }
