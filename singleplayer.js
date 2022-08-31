@@ -57,7 +57,7 @@ module.exports = function() {
          }
 
          //Check exit parameter
-         input = input.toLowerCase();
+         input = input.toString.toLowerCase();
          if (input == "exit") {
             break;
          }
